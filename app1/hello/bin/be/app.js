@@ -111,6 +111,34 @@ app.get('/testApiManager', (req, response) => {
 
 });
 
+app.get('/allProject', (req, response) => {
+  var query = 'SELECT project_name, project_description, C.company, expected_delivery, creation_date FROM Project P join Customer C on P.customer = C.customer_id ORDER BY creation_date'
+  odbcConnector(query, function(result){
+    response.json(result);
+  });
+});
+
+app.get('/allDecisions', (req, response) => {
+  var query = "select * from decision";
+  odbcConnector(query, function(result){
+    response.json(result);
+  })
+})
+
+function odbcConnector(requete, callback){
+  try{
+    request('https://159.84.143.246:8243/odbc/v1/api/odbcModels/requestdb?request='+escape(requete), { json: true }, (err, res, body) => {
+      if (err) { 
+          return console.log(err); 
+      }
+      console.log('service: '+ JSON.stringify(body));
+      callback(body)
+    });
+  }
+  catch(e){
+    console.log(e)
+  }
+}
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
