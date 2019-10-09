@@ -111,6 +111,28 @@ app.get('/testApiManager', (req, response) => {
 
 });
 
+app.get('/allCPSControl',(req, response) => {
+  var query = 'select C.id, customer, control_type, ope, mo, max_tolerance, product, control_size, measure, nb_blob from control C join product_control PC on C.id=PC.control'
+  odbcConnector(query, function(result){
+    response.json(result);
+  });
+});
+
+function odbcConnector(requete, callback){
+  try{
+    request('https://159.84.143.246:8243/odbcvApp4/v1/api/odbcModels/requestdb?request='+escape(requete), { json: true }, (err, res, body) => {
+      if (err) { 
+          return console.log(err); 
+      }
+      console.log('service: '+ JSON.stringify(body));
+      callback(body)
+    });
+  }
+  catch(e){
+    console.log(e)
+  }
+}
+
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

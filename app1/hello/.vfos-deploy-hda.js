@@ -9,7 +9,7 @@ const archive = archiver('zip');
 
 //vfOS vApp path
 var dirname = "logic/datamodels/";
-var deployerURL = 'http://195.201.144.6.nip.io/hdadeployer/uploadModels'; //url: 'http://localhost:8090/hdadeployer/uploadModels',
+var deployerURL = /*'http://195.201.144.6.nip.io/hdadeployer/uploadModels'; url:*/ 'http://localhost:8090/hdadeployer/uploadModels',
 
 //Does the ML models directory exist?
 fs.stat(dirname, function(err) {

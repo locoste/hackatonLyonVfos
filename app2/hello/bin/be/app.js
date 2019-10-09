@@ -111,6 +111,43 @@ app.get('/testApiManager', (req, response) => {
 
 });
 
+app.get('/getProductInformation', (req, res) => {
+  var product = req.params.product;
+  var query = 'SELECT product, quantity, manufacturer , delivery_date FROM product_sequence WHERE pere is null AND groupe = "'+ product +'"';
+  odbcConnector(query, function(result){
+    res.json(result);
+  })
+});
+
+app.get('/getProductSequence', (req, res) => {
+  var product = req.params.product
+  var query = 'Select product_id, product, manufacturer, begin_data, end_date, quantity, of, delivery_date, pere from product_sequence where groupe = "'+product+'"'
+  odbcConnector(query, function(result){
+    res.json(result);
+  })
+})
+
+app.get('/findAllOrder', (req, res) => {
+  var query = 'SELECT * FROM product_sequence WHERE pere is null and age is null'
+  odbcConnector(query, function(result){
+    res.json(result);
+  });
+});
+
+function odbcConnector(requete, callback){
+  try{
+    request('https://159.84.143.246:8243/odbcvApp3/v1/api/odbcModels/requestdb?request='+escape(requete), { json: true }, (err, res, body) => {
+      if (err) { 
+          return console.log(err); 
+      }
+      console.log('service: '+ JSON.stringify(body));
+      callback(body)
+    });
+  }
+  catch(e){
+    console.log(e)
+  }
+}
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

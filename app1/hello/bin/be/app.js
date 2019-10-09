@@ -69,6 +69,7 @@ app.use(function(req, res, next) {
  * welcome backend route
 */
 app.get('/', (req, res) => {
+  console.log('yo')
   res.json({
       message : 'vApp backend is running',
       data: new Date()

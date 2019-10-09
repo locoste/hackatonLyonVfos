@@ -8,6 +8,7 @@ WORKDIR /usr/src/app
 COPY . .
 
 RUN npm install
+RUN ls -a
 RUN chmod +x entrypoint.sh
 
 EXPOSE 4201

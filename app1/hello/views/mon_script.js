@@ -1,6 +1,15 @@
 
 $(document).ready(function() {
 
+        jQuery.ajax({
+            url: "/"
+        }).then(function(data) {
+        	console.log(data)
+           jQuery('#textareaId').val(JSON.stringify(data));
+           
+        });
+
+
     jQuery.ajax({
     	url:"/allProject"
     }).then(function(projects){
