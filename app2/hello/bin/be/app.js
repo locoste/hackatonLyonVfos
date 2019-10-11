@@ -136,12 +136,12 @@ app.get('/findAllOrder', (req, res) => {
 
 function odbcConnector(requete, callback){
   try{
-    request('https://159.84.143.246:8243/odbcvApp3/v1/api/odbcModels/requestdb?request='+escape(requete), { json: true }, (err, res, body) => {
+    request('https://159.84.143.246:8243/odbcvApp3/v1/api/odbcModels/requestdb?request='+escape(requete), { json: true,  rejectUnauthorized:false}, (err, res, body) => {
       if (err) { 
           return console.log(err); 
       }
       console.log('service: '+ JSON.stringify(body));
-      callback(body)
+      callback(body.request)
     });
   }
   catch(e){

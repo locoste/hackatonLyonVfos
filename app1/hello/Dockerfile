@@ -19,4 +19,4 @@ LABEL vf-OS.icon=img/2.png
 LABEL vf-OS.urlprefixReplace=true
 LABEL vf-OS.compose.0.depends_on.0="rabbitmq"
 
-ENTRYPOINT ["/entrypoint.sh"]
+RUN npm start

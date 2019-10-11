@@ -2,7 +2,7 @@
 vfOS-Hackathon Archetype
 
 # Local launch
-vfOS-Hackathon\hello> npm run start-pc
+vfOS-Hackathon\hello> npm run start
 
 # Docker 
 
