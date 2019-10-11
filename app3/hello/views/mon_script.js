@@ -5,27 +5,48 @@ $(document).ready(function() {
         url: "/allCPSControl"
     }).then(function(data) {
         for(k=0; k<data.length; k++){
-			var x = document.getElementById(myTable).insertRow(document.getElementById(myTable).length-1);
-			var a = x.insertCell(0);
-			var b = x.insertCell(1);
-			var c = x.insertCell(2);
-			var d = x.insertCell(3);
-			var e = x.insertCell(4);
-			var f = x.insertCell(5);
-            var g = x.insertCell(6);
-            var h = x.insertCell(7);
-            var i = x.insertCell(8);
-            var j = x.insertCell(9);
-			a.innerHTML = data[k].id;
-			b.innerHTML = data[k].customer;
-			c.innerHTML = data[k].control_type;
-			d.innerHTML = data[k].ope;
-			e.innerHTML = data[k].mo;
-			f.innerHTML = data[k].max_tolerance;
-            g.innerHTML = data[k].product;
-            h.innerHTML = data[k].control_size;
-            i.innerHTML = data[k].measure;
-            j.innerHTML = data[k].nb_blob;
+            var tr = document.createElement('tr');
+            document.getElementById('myTable').appendChild(tr);
+
+            var td = document.createElement('td');
+            tr.appendChild(td);
+            td.appendChild(document.createTextNode(data[k].id));
+            
+            var td1 = document.createElement('td');
+            tr.appendChild(td1);
+            td1.appendChild(document.createTextNode(data[k].customer));
+
+            var td2 = document.createElement('td');
+            tr.appendChild(td2);
+            td2.appendChild(document.createTextNode(data[k].control_type));
+
+            var td3 = document.createElement('td');
+            tr.appendChild(td3);
+            td3.appendChild(document.createTextNode(data[k].ope));
+
+            var td4 = document.createElement('td');
+            tr.appendChild(td4);
+            td4.appendChild(document.createTextNode(data[k].mo));
+
+            var td5 = document.createElement('td');
+            tr.appendChild(td5);
+            td5.appendChild(document.createTextNode(data[k].max_tolerance));
+
+            var td6 = document.createElement('td');
+            tr.appendChild(td6);
+            td6.appendChild(document.createTextNode(data[k].product));
+
+            var td7 = document.createElement('td');
+            tr.appendChild(td7);
+            td7.appendChild(document.createTextNode(data[k].control_size));
+
+            var td8 = document.createElement('td');
+            tr.appendChild(td8);
+            td8.appendChild(document.createTextNode(data[k].measure));
+
+            var td9 = document.createElement('td');
+            tr.appendChild(td9);
+            td9.appendChild(document.createTextNode(data[k].nb_blob));
 		} 
     });
 });

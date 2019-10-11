@@ -29,9 +29,9 @@ $(document).ready(function() {
                 td5.appendChild(document.createTextNode(data[k].of));
 
                 var td6 = document.createElement('td');
+                td6.innerHTML='<a href="DisplayProduct.html?'+data[k].groupe+'">Product Sequence</a>'
                 tr.appendChild(td6);
-                td6.appendChild(document.createTextNode(data[k][5]));
-                td6.href='DisplayProduct.html?'+data[k].groupe
+                console.log(td6)
     		}
         });
   

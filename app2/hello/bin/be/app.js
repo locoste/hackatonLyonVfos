@@ -111,17 +111,17 @@ app.get('/testApiManager', (req, response) => {
 
 });
 
-app.get('/getProductInformation', (req, res) => {
-  var product = req.params.product;
-  var query = 'SELECT product, quantity, manufacturer , delivery_date FROM product_sequence WHERE pere is null AND groupe = "'+ product +'"';
+app.get('/getProductInformation/:groupe', (req, res) => {
+  var groupe = req.params.groupe;
+  var query = 'SELECT product, quantity, manufacturer , delivery_date FROM product_sequence WHERE pere is null AND groupe = "'+ groupe +'"';
   odbcConnector(query, function(result){
     res.json(result);
   })
 });
 
-app.get('/getProductSequence', (req, res) => {
+app.get('/getProductSequence/:product', (req, res) => {
   var product = req.params.product
-  var query = 'Select product_id, product, manufacturer, begin_data, end_date, quantity, of, delivery_date, pere from product_sequence where groupe = "'+product+'"'
+  var query = 'Select id, product_id, product, manufacturer, begin_date, end_date, quantity, of, delivery_date, pere from product_sequence where groupe = "'+product+'"'
   odbcConnector(query, function(result){
     res.json(result);
   })
