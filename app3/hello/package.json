@@ -23,8 +23,7 @@
     },
     "devDependencies": {},
     "scripts": {
-        "start": "PORT=4201 node bin/be/app.js",
-        "start-pc": "set NODE_TLS_REJECT_UNAUTHORIZED=0 && set PORT=4201 && node bin/be/app.js"
+        "start": "set PORT=4201 && node bin/be/app.js"
     },
     "author": "vfos",
     "license": "ISC"
