@@ -1,14 +1,14 @@
 FROM node:alpine
 
-ENV ASSET_NAME="hello"
+ENV ASSET_NAME="app1"
 
 RUN mkdir -p /usr/src/app
 WORKDIR /usr/src/app
 
-ADD entrypoint.sh /
 COPY . .
 
 RUN npm install
+RUN ls -a
 RUN chmod +x entrypoint.sh
 
 EXPOSE 4201
@@ -19,4 +19,4 @@ LABEL vf-OS.icon=img/2.png
 LABEL vf-OS.urlprefixReplace=true
 LABEL vf-OS.compose.0.depends_on.0="rabbitmq"
 
-ENTRYPOINT ["/entrypoint.sh"]
+CMD ["npm", "start"]

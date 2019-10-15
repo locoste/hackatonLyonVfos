@@ -78,7 +78,7 @@ app.get('/', (req, res) => {
 app.get('/test', (req, response) => {
 
       //PUT YOUR BUSINESS LOGIC HERE !
-      request('http://dummy.restapiexample.com/api/v1/employees', { json: true }, (err, res, body) => {
+      request('http://dummy.restapiexample.com/api/v1/employees', { json: true, rejectUnauthorized:false }, (err, res, body) => {
         if (err) { 
             return console.log(err); 
         }
@@ -96,7 +96,7 @@ app.get('/test', (req, response) => {
 app.get('/testApiManager', (req, response) => {
 
   //PUT YOUR BUSINESS LOGIC HERE !
-  request('https://159.84.143.246:8243/3dscan/v1/sqlrest/webgl', { json: true }, (err, res, body) => {
+  request('https://159.84.143.246:8243/3dscan/v1/sqlrest/webgl', { json: true, rejectUnauthorized:false }, (err, res, body) => {
     if (err) { 
         return console.log(err); 
     }
@@ -136,7 +136,7 @@ app.get('/findAllOrder', (req, res) => {
 
 function odbcConnector(requete, callback){
   try{
-    request('https://159.84.143.246:8243/odbcvApp3/v1/api/odbcModels/requestdb?request='+escape(requete), { json: true }, (err, res, body) => {
+    request('https://159.84.143.246:8243/odbcvApp3/v1/api/odbcModels/requestdb?request='+escape(requete), { json: true, rejectUnauthorized:false }, (err, res, body) => {
       if (err) { 
           return console.log(err); 
       }
