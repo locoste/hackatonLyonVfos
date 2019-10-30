@@ -112,7 +112,7 @@ app.get('/testApiManager', (req, response) => {
 });
 
 app.get('/allCPSControl',(req, response) => {
-  var query = 'select C.id, customer, control_type, ope, mo, max_tolerance, product, control_size, measure, nb_blob from control C join product_control PC on C.id=PC.control'
+  var query = 'select C.id, customer, control_type, ope, mo, max_tolerance, product, control_size, quantity, measure, nb_blob from control C join product_control PC on C.id=PC.control'
   odbcConnector(query, function(result){
     response.json(result);
   });

@@ -1,29 +1,88 @@
 <!DOCTYPE HTML>
 <html>
-  <head>
-    <title>Hello World! Site Title</title>
+<head>
+  <title>Hello World! Site Title</title>
 
-    <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
 
-    <!-- jQuery library -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <!-- jQuery library -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
-    <!-- Latest compiled JavaScript -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" type="text/css" href="/css/vApp.css">
-    <script src="mon_script.js"></script>
-  </head>
-  <body>
-    <h1>Hello World!</h1>
-    
-    <div class="form-group">
-      <table id="myTable" style="border: 1px solid black">
-        <thead>
-          <th>id</th><th>customer</th><th>control_type</th><th>ope</th><th>mo</th><th>max_tolerance</th><th>product</th><th>control_size</th><th>measure</th><th>nb_blob</th>
-        </thead>
-      </table>
+  <!-- Latest compiled JavaScript -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="/css/vApp.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.bundle.min.js"></script>
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/moment.js/2.13.0/moment.min.js"></script>
+  <script src="mon_script.js"></script>
+</head>
+<body>
+  <div ng-app="Project">
+    <div ng-controller="DisplayProject">
+      <h1>Blob Number Managment</h1>
+
+      <h2>Sort By:</h2>
+      <div class="row">
+        <div class="col-ms-2">
+          Customer:
+          <select id="customer" ng-model="customer" ng-change="changeChart('customer')">
+            <option ng-repeat="x in customer">{{x}}</option>
+          </select>
+        </div>
+        <div class="col-ms-2">
+          Control Type:
+          <select id="control_type" ng-model="Control_Type" ng-change="changeChart('control_type')">
+            <option ng-repeat="x in control_type">{{x}}</option>
+          </select>
+        </div>
+        <div class="col-ms-2">
+          Operation:
+          <select id="operation" ng-model="ope" ng-change="changeChart('operation')">
+            <option ng-repeat="x in operation">{{x}}</option>
+          </select>
+        </div>
+        <div class="col-ms-2">
+          Measure:
+          <select id="Measure" ng-model="Measure" ng-change="changeChart('Measure')">
+            <option ng-repeat="x in measure">{{x}}</option>
+          </select>
+        </div>
+        <div class="col-ms-2">
+          Max Tolerance:
+          <select id="Tolerance" ng-model="Tolerance" ng-change="changeChart('Tolerance')">
+            <option ng-repeat="x in tolerance">{{x}}</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="row">
+        <canvas id="cpsStat"></canvas>
+      </div>
+
+      <!--<div class="form-group">
+        <table id="myTable" style="border: 1px solid black">
+          <thead>
+            <th>id</th><th>customer</th><th>control_type</th><th>ope</th><th>mo</th><th>max_tolerance</th><th>product</th><th>control_size</th><th>quantity</th><th>measure</th><th>nb_blob</th>
+          </thead>
+          <tbody>
+            <tr ng-repeat="x in cps">
+              <td>{{x.id}}</td>
+              <td>{{x.customer}}</td>
+              <td>{{x.control_type}}</td>
+              <td>{{x.ope}}</td>
+              <td>{{x.mo}}</td>
+              <td>{{x.max_tolerance}}</td>
+              <td>{{x.product}}</td>
+              <td>{{x.control_size}}</td>
+              <td>{{x.quantity}}</td>
+              <td>{{x.measure}}</td>
+              <td>{{x.nb_blob}}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>-->
     </div>
-
-  </body>
+  </div>
+</body>
 </html>

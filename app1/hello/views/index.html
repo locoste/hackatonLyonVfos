@@ -12,17 +12,18 @@
     <!-- Latest compiled JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
     <link rel="stylesheet" type="text/css" href="/css/vApp.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.bundle.min.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/moment.js/2.13.0/moment.min.js"></script>
     <script src="mon_script.js"></script>
   </head>
   <body>
     <h1>Product Statistics</h1>
-    <div class="form-group">
-      <table id="myTable" style="border: 1px solid black">
-        <thead>
-          <th>Date</th><th>Refuse</th><th>Accept</th><th>Stand By</th>
-        </thead>
-      </table>
+    <div class="row">
+      <button id="number">Display Number</button>
+      <button id="pourcentage">Display Pourcentage</button>
     </div>
-
+    <div class="row">
+      <canvas id="projectStat"></canvas>
+    </div>
   </body>
 </html>

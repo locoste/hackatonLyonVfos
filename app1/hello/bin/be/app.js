@@ -94,6 +94,17 @@ app.get('/test', (req, response) => {
 
 });
 
+app.get('/favicon.ico', (req, response) => {
+  response.writeHead(200, {"Content-Type": "image/png"});
+  fs.readFile('../../images/favicon.png', function(err, image){
+    if(err){
+      throw err;
+    }
+    response.write(image);
+    response.end();
+  });
+});
+
 app.get('/testApiManager', (req, response) => {
 
   //PUT YOUR BUSINESS LOGIC HERE !
