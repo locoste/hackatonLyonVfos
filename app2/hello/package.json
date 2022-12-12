@@ -4,7 +4,7 @@
     "description": "vfos",
     "main": "app.js",
     "dependencies": {
-        "express": "^4.16.3",
+        "express": "^4.17.3",
         "async": "^2.6.0",
         "body-parser": "~1.18.2",
         "cookie-parser": "~1.4.3",
